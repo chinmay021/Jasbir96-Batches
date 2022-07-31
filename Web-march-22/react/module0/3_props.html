@@ -25,13 +25,14 @@
             counter++;
             // variable se value get then you also put curly
             //  and that variable
-            return (<h1>hello world {props.name} {counter}  
-                 age is  {props.age}</h1>)
+            return (<h1>hello world {props.name} {counter}  age is  {props.age}</h1>)
         }
+
         //2 //component compose
-        function HelloParent() {
+        function HelloParent(props) {
             return (
                 <div>
+                    <h2>I am {props.gender}</h2>
                     <Hello name="Jasbir" age="25"></Hello>
                     <Hello name="Rajneesh" age="25"></Hello>
                     <Hello name="Pankaj" age="28"></Hello>
@@ -39,10 +40,17 @@
                 </div>
             )
         }
-
+        function HelloParent1() {
+            return (
+                <div>
+                    <HelloParent gender="Male"></HelloParent>
+                </div>
+            )
+        }
         //1  it puts  component  return value  in the  div with id=app 
-        ReactDOM.render(<HelloParent></HelloParent>, document.getElementById("app"));
+        ReactDOM.render(<HelloParent1></HelloParent1>, document.getElementById("app"));
     </script>
 </body>
 
 </html>
+
